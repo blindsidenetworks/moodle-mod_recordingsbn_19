@@ -9,8 +9,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v2 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once(dirname(__FILE__).'/lib.php');
 
@@ -47,7 +45,6 @@ if (! $recordingsbns = get_all_instances_in_course('recordingsbn', $course)) {
 }
 
 /// Print the list of instances (your module will probably extend this)
-
 $timenow  = time();
 $strname  = get_string('name');
 $strweek  = get_string('week');
@@ -79,7 +76,6 @@ foreach ($recordingsbns as $recordingsbn) {
         $table->data[] = array ($link);
     }
 }
-
 print_heading($strrecordingsbns);
 print_table($table);
 
