@@ -44,7 +44,9 @@ class mod_recordingsbn_mod_form extends moodleform_mod {
         
         //-------------------------------------------------------------------------------
         // add standard elements, common to all modules
-        $this->standard_coursemodule_elements();
+        $features = array('groups'=>false, 'groupings'=>false, 'groupmembersonly'=>true,
+                'outcomes'=>false, 'gradecat'=>false, 'idnumber'=>false);
+        $this->standard_coursemodule_elements($features);
         //-------------------------------------------------------------------------------
         // add standard buttons, common to all modules
         $this->add_action_buttons();

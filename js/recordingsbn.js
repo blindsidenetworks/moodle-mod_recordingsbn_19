@@ -26,7 +26,7 @@ function actionCall(action, recordingid, courseid) {
 
 		}
 		$.ajax({
-		    url	: M.cfg.wwwroot + '/mod/bigbluebuttonbn/bbb-broker.php?action=' + action + '&recordingid=' + recordingid + '&cid=' + courseid,
+		    url	: wwwroot + '/mod/bigbluebuttonbn/bbb-broker.php?action=' + action + '&recordingid=' + recordingid + '&cid=' + courseid,
 		    dataType : 'xml'
 		});
 		
@@ -87,7 +87,7 @@ $(document).ready(function(){
             "aButtons": [ "select_all", "select_none" ]
             },
                 
-        "sAjaxSource": M.cfg.wwwroot + "/mod/bigbluebuttonbn/ajax.php?cid=" + courseid + "&mid=" + meetingid,
+        "sAjaxSource": wwwroot + "/mod/bigbluebuttonbn/ajax.php?cid=" + courseid + "&mid=" + meetingid,
         "bFilter": false,
         "bPaginate": false,
         "bInfo": false,
