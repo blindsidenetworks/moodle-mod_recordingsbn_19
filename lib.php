@@ -1,4 +1,4 @@
-<?php  
+<?php
 /**
  * View and administrate BigBlueButton playback recordings
  *
@@ -6,16 +6,19 @@
  *    Jesus Federico  (jesus [at] blindsidenetworks [dt] com)
  *
  * @package   mod_recordingsbn
- * @copyright 2012 Blindside Networks Inc.
+ * @copyright 2011-2012 Blindside Networks Inc.
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v2 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$recordingsbn_EXAMPLE_CONSTANT = 42;     /// for example
-
+////////////////////////////////////////////////////////////////////////////////
+// Moodle core API                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
 /**
+ * Saves a new instance of the recordingsbn into the database
+ * 
  * Given an object containing all the necessary data,
  * (defined by the form in mod_form.php) this function
  * will create a new instance and return the id number
@@ -207,31 +210,20 @@ function recordingsbn_uninstall() {
     return true;
 }
 
-function recordingsbn_get_coursemodule_info($coursemodule) {
-/*
-    global $CFG;
 
-    $info = null;
-    if ($recordingsbn = get_record('recordingsbn', array('id'=>$coursemodule->instance), 'id, name, intro')) {
+/**
+ * @return 
+ */
+function recordingsbn_get_types() {
+    $types = array();
 
-        $info = new object();
-        $info->name  = $recordingsbn->name.'  '.$recordingsbn->intro;
+    $type = new object();
+    $type->modclass = MOD_CLASS_RESOURCE;
+    $type->type = "recordingsbn";
+    $type->typestr = get_string('modulename', 'recordingsbn');
+    $types[] = $type;
 
-        //if ( $bigbluebuttonbn->newwindow == 1 ){
-            $info->extra = "onclick=\"window.open('http://192.168.0.172/mod/recordingsbn/view.php?id=".$coursemodule->id."&amp;redirect=1'); return false;\"";
-            //$info->extra =  urlencode("onclick=\"this.target='bigbluebuttonbn$bigbluebuttonbn->id'; return ".
-            //        "openpopup('/mod/bigbluebuttonbn/view.php?inpopup=true&amp;id=".
-            //                $coursemodule->id.
-            //                "','bigbluebuttonbn$bigbluebuttonbn->id','$bigbluebuttonbn->newwindow');\"");
-
-        //}
-
-    }
-*/    
-    $info = new object();
-    $info->extra = "onclick=\"window.open('http://192.168.0.172/mod/recordingsbn/view.php?id=".$coursemodule->id."&amp;redirect=1'); return false;\"";
-    return $info;
-
+    return $types;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
