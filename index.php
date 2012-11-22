@@ -1,4 +1,5 @@
-<?php /**
+<?php 
+/**
  * View and administrate BigBlueButton playback recordings
  *
  * Authors:
