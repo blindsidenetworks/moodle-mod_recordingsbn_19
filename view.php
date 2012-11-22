@@ -73,9 +73,8 @@ print_header_simple(format_string($recordingsbn->name), '', $navigation, '', '',
 /// Print the main part of the page
 
 // Recordings plugin code
-//if( table_exists('bigbluebuttonbn') ) print "hello";
+print_box_start();
 if ( isset($CFG->bigbluebuttonbnSecuritySalt) ) {
-    //echo 'YOUR CODE GOES HERE';
     
     $meetingID='';
     $results = get_records_sql('SELECT DISTINCT meetingid, courseid, bigbluebuttonbnid FROM '.$CFG->prefix.'bigbluebuttonbn_log WHERE '.$CFG->prefix.'bigbluebuttonbn_log.courseid='.$course->id. ' AND '.$CFG->prefix.'bigbluebuttonbn_log.record = 1 AND '.$CFG->prefix.'bigbluebuttonbn_log.event = \'Create\';' );
@@ -97,9 +96,6 @@ if ( isset($CFG->bigbluebuttonbnSecuritySalt) ) {
         }
     
     }
-    
-    //echo $OUTPUT->heading($recordingsbn->name);
-    //echo $OUTPUT->box_start('generalbox boxaligncenter', 'dates');
     
     echo '<script type="text/javascript" >var meetingid = "'.$meetingID.'";</script>'."\n";
     echo '<script type="text/javascript" >var courseid = "'.$course->id.'";</script>'."\n";
@@ -133,16 +129,12 @@ if ( isset($CFG->bigbluebuttonbnSecuritySalt) ) {
     echo '      </table>'."\n";
     echo '    </center>'."\n";
     
-    //echo $OUTPUT->box_end();
 } else {
-    //echo $OUTPUT->heading($recordingsbn->name);
-    //echo $OUTPUT->box_start('generalbox boxaligncenter', 'dates');
     
     print_error('view_error_bigbluebuttonbn_not_installed', 'recordingsbn');
     
-    //echo $OUTPUT->box_end();
-    
 }
+print_box_end();
 
 /// Finish the page
 print_footer($course);
