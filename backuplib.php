@@ -60,7 +60,6 @@ function recordingsbn_backup_one_mod($bf,$preferences,$recordingsbn) {
     fwrite ($bf,full_tag("ID",4,false,$recordingsbn->id));
     fwrite ($bf,full_tag("MODTYPE",4,false,"recordingsbn"));
     fwrite ($bf,full_tag("NAME",4,false,$recordingsbn->name));
-    fwrite ($bf,full_tag("TIMECREATED",4,false,$recordingsbn->timecreated));
     fwrite ($bf,full_tag("TIMEMODIFIED",4,false,$recordingsbn->timemodified));
     //End mod
     $status = fwrite ($bf,end_tag("MOD",3,true));

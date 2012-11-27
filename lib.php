@@ -29,11 +29,8 @@ defined('MOODLE_INTERNAL') || die();
  */
 function recordingsbn_add_instance($recordingsbn) {
 
-    $recordingsbn->timecreated = time();
-
-    # You may have to add extra stuff in here #
-
     return insert_record('recordingsbn', $recordingsbn);
+
 }
 
 

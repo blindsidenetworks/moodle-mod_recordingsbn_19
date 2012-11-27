@@ -11,12 +11,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$module->version   = 2012112000;
+$module->version   = 2012112030;
 $module->requires  = 2007101509;
 $module->cron      = 0;
 $module->component = 'mod_recordingsbn';
 $module->maturity = MATURITY_ALPHA;  // [MATURITY_STABLE | MATURITY_RC | MATURITY_BETA | MATURITY_ALPHA]
 $module->release  = '1.0.8';
 $module->dependencies = array(
-    'mod_bigbluebuttonbn' => 2012112010,
+    'mod_bigbluebuttonbn' => 2012112030,
 );
