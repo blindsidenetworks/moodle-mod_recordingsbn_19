@@ -1,6 +1,6 @@
 <?php 
 /**
- * View and administrate BigBlueButton playback recordings
+ * Backup for recordingsbn
  *
  * Authors:
  *    Jesus Federico  (jesus [at] blindsidenetworks [dt] com)
@@ -43,7 +43,7 @@ function recordingsbn_backup_mods($bf,$preferences) {
     }
     return $status;
 }
- 
+
 function recordingsbn_backup_one_mod($bf,$preferences,$recordingsbn) {
 
     global $CFG;
