@@ -76,8 +76,13 @@ $navlinks[] = array('name' => format_string($recordingsbn->name), 'link' => '', 
 $navigation = build_navigation($navlinks);
 
 ///Initialize table headers
-$table->head  = array ($view_head_recording, $view_head_activity, $view_head_description, $view_head_date, $view_head_duration, $view_head_actionbar);
-$table->align = array ('center', 'center', 'center', 'center', 'center', 'left');
+if ( $moderator ) {
+    $table->head  = array ($view_head_recording, $view_head_activity, $view_head_description, $view_head_date, $view_head_duration, $view_head_actionbar);
+    $table->align = array ('center', 'center', 'center', 'center', 'center', 'left');
+} else {
+    $table->head  = array ($view_head_recording, $view_head_activity, $view_head_description, $view_head_date, $view_head_duration);
+    $table->align = array ('center', 'center', 'center', 'center', 'center');
+}
 
 /// Print page headers
 print_header_simple(format_string($recordingsbn->name), '', $navigation, '', '', true,
@@ -176,8 +181,12 @@ if ( isset($CFG->bigbluebuttonbnSecuritySalt) ) {
                     $format = '%a %h %d %H:%M:%S %Z %Y';
                     //Format the date
                     $formatedStartDate = userdate($recording['startTime'], $format, usertimezone($USER->timezone) );
-
-                    $table->data[] = array ($type, $meta_activity, $meta_description, str_replace( " ", "&nbsp;", $formatedStartDate), $duration, $actionbar );
+                    
+                    if ( $moderator ) {
+                        $table->data[] = array ($type, $meta_activity, $meta_description, str_replace( " ", "&nbsp;", $formatedStartDate), $duration, $actionbar );
+                    } else {
+                        $table->data[] = array ($type, $meta_activity, $meta_description, str_replace( " ", "&nbsp;", $formatedStartDate), $duration);
+                    }
                     
                 }
             }
