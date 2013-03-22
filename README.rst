@@ -1,8 +1,8 @@
-RecordingsBN Activity Module for Moodle 2.x
+RecordingsBN Activity Module for Moodle 1.9
 ===========================================
 BigBlueButton is an open source web conferencing system that enables universities and colleges to deliver a high-quality learning experience to remote students.  
 
-These instructions describe how to install the RecordingsBN Activity Module for Moodle 2.x.  This module is developed and supported by Blindside Networks, the company that started the BigBlueButton project in 2007.
+These instructions describe how to install the RecordingsBN Activity Module for Moodle 1.9.  This module is developed and supported by Blindside Networks, the company that started the BigBlueButton project in 2007.
 
 With this plugin you can
 	- Create resource links to recordings made with BigBlueButton (requires bigbluebuttonbn plugin to be installed)
@@ -12,8 +12,8 @@ Prerequisites
 =============
 You need:
 
-        1.  A server running Moodle 2.0+
-        2.  A BigBlueButton 0.8-beta-4 (or later) server running on a separate server (not on the same server as your Moodle site)
+        1.  A server running Moodle 1.9
+        2.  A BigBlueButton 0.8 (or later) server running on a separate server (not on the same server as your Moodle site)
 
 Blindside Networks provides you a test BigBlueButton server for testing this plugin.  To use this test server, just accept the default settings when configuring the activity module.  The default settings are
 
@@ -27,11 +27,11 @@ Obtaining the source
 ====================
 This GitHub repostiory at
 
-  https://github.com/blindsidenetworks/moodle-mod_bigbluebutton/tree/master/moodle2x/recordingsbn
+  https://github.com/blindsidenetworks/moodle-mod_recordingsbn_19
 
 contains the latest source.  If you want to use the latest packaged snapshot, you can download it from
 
-  http://blindsidenetworks.com/downloads/moodle/recordingsbn.zip
+  http://blindsidenetworks.com/downloads/moodle/bigbluebutton_blindsidenetworks_activity_module_19.zip
 
 
 Installation
