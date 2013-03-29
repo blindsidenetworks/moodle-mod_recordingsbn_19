@@ -160,9 +160,13 @@ if ( isset($CFG->bigbluebuttonbnSecuritySalt) ) {
 
                     $type = '';
                     foreach ( $recording['playbacks'] as $playback ){
-                        $type .= '<a href="'.$playback['url'].'" title="'.$playback['type'].'" target="_new">'.$playback['type'].'</a>&#32;';
+                    	if ($recording['published'] == 'true'){
+                    		$type .= $OUTPUT->action_link($playback['url'], $playback['type'], null, array('title' => $playback['type'], 'target' => '_new') ).'&#32;';
+                    	} else {
+                    		$type .= $playback['type'].'&#32;';
+                    	}
                     }
-
+                    
                     //Make sure the startTime is timestamp
                     if( !is_numeric($recording['startTime']) ){
                         $date = new DateTime($recording['startTime']);
