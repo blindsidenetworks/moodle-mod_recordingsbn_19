@@ -117,7 +117,7 @@ if ( isset($CFG->bigbluebuttonbnSecuritySalt) ) {
     //If there are meetings with recordings load the data to the table
     if ( $meetingID != '' ){
         $recordingsbn = bigbluebuttonbn_getRecordingsArray($meetingID, $url, $salt);
-
+        
         if( isset($recordingsbn) && !isset($recordingsbn['messageKey']) ){
             foreach ( $recordingsbn as $recording ){
                 if ( $moderator || $recording['published'] == 'true' ) {
@@ -161,7 +161,7 @@ if ( isset($CFG->bigbluebuttonbnSecuritySalt) ) {
                     $type = '';
                     foreach ( $recording['playbacks'] as $playback ){
                     	if ($recording['published'] == 'true'){
-                    		$type .= $OUTPUT->action_link($playback['url'], $playback['type'], null, array('title' => $playback['type'], 'target' => '_new') ).'&#32;';
+                    	    $type .= '<a href="'.$playback['url'].'" title="'.$playback['type'].'" target="_new">'.$playback['type'].'</a>&#32;';
                     	} else {
                     		$type .= $playback['type'].'&#32;';
                     	}
