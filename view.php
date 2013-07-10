@@ -78,10 +78,10 @@ $navigation = build_navigation($navlinks);
 ///Initialize table headers
 if ( $moderator ) {
     $table->head  = array ($view_head_recording, $view_head_activity, $view_head_description, $view_head_date, $view_head_duration, $view_head_actionbar);
-    $table->align = array ('center', 'center', 'center', 'center', 'center', 'left');
+    $table->align = array ('left', 'left', 'left', 'left', 'center', 'left');
 } else {
     $table->head  = array ($view_head_recording, $view_head_activity, $view_head_description, $view_head_date, $view_head_duration);
-    $table->align = array ('center', 'center', 'center', 'center', 'center');
+    $table->align = array ('left', 'left', 'left', 'left', 'center');
 }
 
 /// Print page headers
