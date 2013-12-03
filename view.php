@@ -175,12 +175,14 @@ if ( isset($CFG->bigbluebuttonbnSecuritySalt) ) {
                         $recording['startTime'] = $recording['startTime'] / 1000;
                     }
                     //Set corresponding format
-                    //$format = isset(get_string('strftimerecentfull', 'langconfig'));
-                    //if( !isset($format) )
-                    $format = '%a %h %d %H:%M:%S %Z %Y';
-                    //Format the date
-                    $formatedStartDate = userdate($recording['startTime'], $format, usertimezone($USER->timezone) );
-                    
+                                    $format = get_string('strftimerecentfull', 'langconfig');
+                    if( isset($format) ) {
+                        $formatedStartDate = userdate($recording['startTime'], $format);
+                    } else {
+                        $format = '%a %h %d, %Y %H:%M:%S %Z';
+                        $formatedStartDate = userdate($recording['startTime'], $format, usertimezone($USER->timezone) );
+                    }
+                                        
                     if ( $moderator ) {
                         $table->data[] = array ($type, $meta_activity, $meta_description, str_replace( " ", "&nbsp;", $formatedStartDate), $duration, $actionbar );
                     } else {
